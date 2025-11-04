@@ -41,6 +41,15 @@ p#anim1 span, p#anim1_5 span, p#anim2 span, p#anim3 span, p#anim4 span, p#anim5 
   animation: font_weight_wave 3s ease-in-out 0s infinite alternate both;
 }
 
+p#anim2, p#anim3, p#anim10 {
+  display: inline-block;
+  text-align: left;
+}
+
+p#anim2 span, p#anim3 span, p#anim10 span {
+  display: inline-block;
+}
+
 #anim10 :not(:first-child) {
   font-size: 48pt;
   display: inline-block;
@@ -135,26 +144,79 @@ p#anim8 span:nth-child(2n+2) { animation-delay:  0.0s; }
 </style>
 <script type="text/javascript" defer>
   window.onload = function() {
-      var width = 17;
-      var width_spans = 18;
-      var height = 11;
+      function buildRows(element) {
+        if (!element) {
+          return [];
+        }
+        var rows = [];
+        var currentRow = [];
+        var nodes = element.childNodes;
+        for (var i = 0; i < nodes.length; i++) {
+          var node = nodes[i];
+          if (node.nodeType === 1 && node.tagName === 'SPAN') {
+            currentRow.push(node);
+          } else if (node.nodeType === 1 && node.tagName === 'BR') {
+            if (currentRow.length) {
+              rows.push(currentRow);
+              currentRow = [];
+            }
+          }
+        }
+        if (currentRow.length) {
+          rows.push(currentRow);
+        }
+        return rows;
+      }
 
-      var anim2 = document.getElementById('anim2').children;
-      for (var y = 0; y < height; y++) {
-        for (var x = 0; x < width; x++) {
-          var span = anim2.item(y * width_spans + x);
-          var ampl = Math.sin((x + y) / width * Math.PI / 2.0);
-          span.style.cssText = "animation-delay: -" + ampl * 3.0 + "s;";
+      function applyWave(rows, calculator) {
+        var height = rows.length;
+        if (!height) {
+          return;
+        }
+        for (var y = 0; y < height; y++) {
+          var row = rows[y];
+          var width = row.length || 1;
+          for (var x = 0; x < width; x++) {
+            var span = row[x];
+            var delaySeconds = calculator(x, y, width, height);
+            span.style.animationDelay = "-" + delaySeconds + "s";
+          }
         }
       }
-      var anim3 = document.getElementById('anim3').children;
-      for (var y = 0; y < height; y++) {
-        for (var x = 0; x < width; x++) {
-          var span = anim3.item(y * width_spans + x);
-          var ampl = Math.sin( - (x - width / 4.0) / width * Math.PI) * Math.sin(- (y - height / 4.0) / height * Math.PI);
-          span.style.cssText = "animation-delay: -" + ampl * 3.0 + "s;";
+
+      applyWave(
+        buildRows(document.getElementById('anim2')),
+        function (x, y, width) {
+          var divisor = Math.max(1, width);
+          var amplitude = Math.sin((x + y) / divisor * Math.PI / 2.0);
+          return amplitude * 3.0;
         }
-      }
+      );
+
+      applyWave(
+        buildRows(document.getElementById('anim3')),
+        function (x, y, width, height) {
+          var divisorX = Math.max(1, width);
+          var divisorY = Math.max(1, height);
+          var amplitude =
+            Math.sin(-(x - divisorX / 4.0) / divisorX * Math.PI) *
+            Math.sin(-(y - divisorY / 4.0) / divisorY * Math.PI);
+          return amplitude * 3.0;
+        }
+      );
+
+      applyWave(
+        buildRows(document.getElementById('anim10')),
+        function (x, y, width, height) {
+          if (width <= 1 && height <= 1) {
+            return 0;
+          }
+          var normalizedX = width > 1 ? x / (width - 1) : 0;
+          var normalizedY = height > 1 ? y / (height - 1) : 0;
+          var phase = (normalizedX + normalizedY) * Math.PI;
+          return Math.sin(phase - Math.PI / 2) * 2.5;
+        }
+      );
     }
 </script>
 
