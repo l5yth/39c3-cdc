@@ -39,6 +39,45 @@
     }
   }
 
+  function flattenRows(rows) {
+    var flattened = [];
+    for (var i = 0; i < rows.length; i++) {
+      var row = rows[i];
+      for (var j = 0; j < row.length; j++) {
+        flattened.push(row[j]);
+      }
+    }
+    return flattened;
+  }
+
+  function resolveDuration(element, fallback) {
+    var raw = element.getAttribute('data-ripple-duration');
+    var parsed = raw ? parseFloat(raw) : NaN;
+    if (!isFinite(parsed) || parsed <= 0) {
+      return fallback;
+    }
+    return parsed;
+  }
+
+  function applyEndlessRipple(element) {
+    var rows = buildRows(element);
+    if (!rows.length) {
+      return;
+    }
+    var spans = flattenRows(rows);
+    var totalSpans = spans.length;
+    if (!totalSpans) {
+      return;
+    }
+    var duration = resolveDuration(element, 3.0);
+    var step = duration / totalSpans;
+    var baseDelay = step;
+    for (var index = 0; index < totalSpans; index++) {
+      var delaySeconds = baseDelay + index * step;
+      spans[index].style.animationDelay = '-' + delaySeconds.toFixed(3) + 's';
+    }
+  }
+
   var calculators = {
     'sine-flow': function (x, y, width) {
       var divisor = Math.max(1, width);
@@ -77,9 +116,21 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initialiseWaves);
-  } else {
+  function initialiseRipples() {
+    var rippleTargets = document.querySelectorAll('.anim1_5');
+    rippleTargets.forEach(function (element) {
+      applyEndlessRipple(element);
+    });
+  }
+
+  function initialise() {
     initialiseWaves();
+    initialiseRipples();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialise);
+  } else {
+    initialise();
   }
 })();
