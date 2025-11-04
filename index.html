@@ -4,708 +4,944 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>39c3 CDC Design Files</title>
+<link rel="stylesheet" href="39C3-Embeds/39C3-TypeMotions.css">
 <style>
-@font-face {
-	font-family: 'KarioDuplexVar';
-	src: url('39C3-Design-Package/39C3-Fonts/Kario 39C3 Variable/Web/Kario39C3VarWEB-Roman.woff2') format('woff2'),
-	     url('39C3-Design-Package/39C3-Fonts/Kario 39C3 Variable/Web/Kario39C3VarWEB-Roman.woff') format('woff'),
-	     url('39C3-Design-Package/39C3-Fonts/Kario 39C3 Variable/Desktop/Kario39C3Var-Roman.ttf') format('truetype');
-	font-weight: 1 1000;
-	font-style: normal;
-}
-
-@keyframes font_weight_wave {
-  from {
-    font-weight: 10;
+  :root {
+    color-scheme: dark;
+    --cdc-bg: #0f0f11;
+    --cdc-panel: #16161d;
+    --cdc-panel-border: #282832;
+    --cdc-text: #f5f5f7;
+    --cdc-text-muted: #c0c0ca;
+    --cdc-highlight: #66f2ff;
+    --cdc-highlight-active: #b69dfe;
   }
-  to {
-    font-weight: 100;
+  * {
+    box-sizing: border-box;
   }
-}
-
-p {
-  font-family: KarioDuplexVar;
-  font-size: 52pt;
-  font-weight: 10;
-  font-kerning: none;
-}
-
-.black {
-  background-color: black;
-  color: white;
-  width: 100%;
-  min-height: 4em;
-}
-
-h2 {
-  font-family: KarioDuplexVar;
-  font-size: 26pt;
-  font-weight: 300;
-  margin: 1.5em 0 0.5em;
-}
-
-footer {
-  font-family: KarioDuplexVar;
-  font-size: 14pt;
-  margin: 3em 0 2em;
-}
-
-footer a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-p#anim1 span, p#anim1_5 span, p#anim2 span, p#anim3 span, p#anim4 span, p#anim5 span, p#anim6 span, p#anim7 span, p#anim8 span, p#anim9 span, p#anim10 span, p#anim11 span {
-  animation: font_weight_wave 3s ease-in-out 0s infinite alternate both;
-}
-
-p#anim2, p#anim3, p#anim10 {
-  display: inline-block;
-  text-align: left;
-}
-
-p#anim2 span, p#anim3 span, p#anim10 span {
-  display: inline-block;
-}
-
-#anim10 :not(:first-child) {
-  font-size: 48pt;
-  display: inline-block;
-  margin-top: .8em;
-  transform: scale(1, 2);
-}
-#anim10 span:first-child {
-  font-size: 36pt;
-  font-height: 150%;
-  margin-bottom: 0.1em;
-  display: inline-block;
-  transform: scale(1, 2.5);
-}
-
-p#anim1 span:nth-child(1) { animation-delay: -0.1s; }
-p#anim1 span:nth-child(2) { animation-delay: -0.2s; }
-p#anim1 span:nth-child(3) { animation-delay: -0.3s; }
-p#anim1 span:nth-child(4) { animation-delay: -0.4s; }
-p#anim1 span:nth-child(5) { animation-delay: -0.5s; }
-p#anim1 span:nth-child(6) { animation-delay: -0.6s; }
-p#anim1 span:nth-child(7) { animation-delay: -0.7s; }
-p#anim1 span:nth-child(8) { animation-delay: -0.8s; }
-p#anim1 span:nth-child(9) { animation-delay: -0.9s; }
-p#anim1 span:nth-child(10) { animation-delay: -1.0s; }
-p#anim1 span:nth-child(11) { animation-delay: -1.1s; }
-p#anim1 span:nth-child(12) { animation-delay: -1.2s; }
-p#anim1 span:nth-child(13) { animation-delay: -1.3s; }
-p#anim1 span:nth-child(14) { animation-delay: -1.4s; }
-p#anim1 span:nth-child(15) { animation-delay: -1.5s; }
-p#anim1 span:nth-child(16) { animation-delay: -1.6s; }
-p#anim1 span:nth-child(17) { animation-delay: -1.7s; }
-p#anim1 span:nth-child(18) { animation-delay: -1.8s; }
-p#anim1 span:nth-child(19) { animation-delay: -1.9s; }
-p#anim1 span:nth-child(20) { animation-delay: -2.0s; }
-p#anim1 span:nth-child(21) { animation-delay: -2.1s; }
-p#anim1 span:nth-child(22) { animation-delay: -2.2s; }
-p#anim1 span:nth-child(23) { animation-delay: -2.3s; }
-p#anim1 span:nth-child(24) { animation-delay: -2.4s; }
-p#anim1 span:nth-child(25) { animation-delay: -2.5s; }
-p#anim1 span:nth-child(26) { animation-delay: -2.6s; }
-p#anim1 span:nth-child(27) { animation-delay: -2.7s; }
-p#anim1 span:nth-child(28) { animation-delay: -2.8s; }
-p#anim1 span:nth-child(29) { animation-delay: -2.9s; }
-p#anim1 span:nth-child(30) { animation-delay: -3.0s; }
-p#anim1 span:nth-child(31) { animation-delay: -3.1s; }
-p#anim1 span:nth-child(32) { animation-delay: -3.2s; }
-p#anim1 span:nth-child(33) { animation-delay: -3.3s; }
-p#anim1 span:nth-child(34) { animation-delay: -3.4s; }
-p#anim1 span:nth-child(35) { animation-delay: -3.5s; }
-p#anim1 span:nth-child(36) { animation-delay: -3.6s; }
-p#anim1 span:nth-child(37) { animation-delay: -3.7s; }
-p#anim1 span:nth-child(38) { animation-delay: -3.8s; }
-
-p#anim10 span:nth-child(2) { animation-delay: -0.2s; }
-p#anim10 span:nth-child(3) { animation-delay: -0.3s; }
-p#anim10 span:nth-child(4) { animation-delay: -0.4s; }
-p#anim10 span:nth-child(5) { animation-delay: -0.5s; }
-p#anim10 span:nth-child(6) { animation-delay: -0.6s; }
-p#anim10 span:nth-child(7) { animation-delay: -0.7s; }
-p#anim10 span:nth-child(8) { animation-delay: -0.8s; }
-p#anim10 span:nth-child(9) { animation-delay: -0.9s; }
-p#anim10 span:nth-child(10) { animation-delay: -1.0s; }
-p#anim10 span:nth-child(11) { animation-delay: -1.1s; }
-p#anim10 span:nth-child(12) { animation-delay: -1.2s; }
-p#anim10 span:nth-child(13) { animation-delay: -1.3s; }
-p#anim10 span:nth-child(14) { animation-delay: -1.4s; }
-
-p#anim6 span:nth-child(1) { animation-delay: -0.5s; }
-p#anim6 span:nth-child(2) { animation-delay: -1.0s; }
-p#anim6 span:nth-child(3) { animation-delay: -1.5s; }
-p#anim6 span:nth-child(4) { animation-delay: -2.0s; }
-p#anim6 span:nth-child(5) { animation-delay: -2.5s; }
-p#anim6 span:nth-child(6) { animation-delay: -3.0s; }
-p#anim6 span:nth-child(7) { animation-delay: -3.5s; }
-p#anim6 span:nth-child(8) { animation-delay: -4.0s; }
-p#anim6 span:nth-child(9) { animation-delay: -4.5s; }
-p#anim6 span:nth-child(10) { animation-delay: -5.0s; }
-p#anim6 span:nth-child(11) { animation-delay: -5.5s; }
-p#anim6 span:nth-child(12) { animation-delay: -6.0s; }
-p#anim6 span:nth-child(13) { animation-delay: -6.5s; }
-p#anim6 span:nth-child(14) { animation-delay: -7.0s; }
-p#anim6 span:nth-child(15) { animation-delay: -7.5s; }
-p#anim6 span:nth-child(16) { animation-delay: -8.0s; }
-
-p#anim7 span:nth-child(odd) { animation-delay: -3.0s; }
-p#anim7 span:nth-child(even) { animation-delay: 0.0s; }
-
-p#anim8 span:nth-child(2n)   { animation-delay: -3.0s; }
-p#anim8 span:nth-child(2n+1) { animation-delay: -1.5s; }
-p#anim8 span:nth-child(2n+2) { animation-delay:  0.0s; }
-
-.matrix-icon-section {
-  margin: 3em 0 0;
-}
-
-.matrix-icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-}
-
-.matrix-icon-card {
-  font-family: KarioDuplexVar;
-  font-size: 18pt;
-  font-weight: 300;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 220px;
-  border-radius: 16px;
-  padding: 1.75rem;
-}
-
-.matrix-icon-card svg {
-  width: 72px;
-  height: 72px;
-  margin-bottom: 1rem;
-}
-
-.matrix-icon-card strong {
-  font-weight: 400;
-}
-
-.matrix-icon-card span {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 14pt;
-  opacity: 0.85;
-}
-
-.matrix-icon-card--home {
-  background-color: #5C33F4;
-  color: #FAF5F5;
-}
-
-.matrix-icon-card--lobby {
-  background-color: #6CFF57;
-  color: #141414;
-}
-
-.matrix-icon-card--coordination {
-  background-color: #66F2FF;
-  color: #141414;
-}
-
-.matrix-icon-card--watercooler {
-  background-color: #B69DFE;
-  color: #141414;
-}
-
-.matrix-icon-card--ticketboerse {
-  background-color: #FF3719;
-  color: #141414;
-}
-
-.matrix-icon-card--ogm {
-  background-color: #141414;
-  color: #FAF5F5;
-}
-
-.matrix-icon-pfp-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
-  margin: 2.5rem 0 0;
-}
-
-.matrix-icon-pfp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 96px;
-  height: 96px;
-  border-radius: 20px;
-  margin: 0;
-}
-
-.matrix-icon-pfp svg {
-  width: 48px;
-  height: 48px;
-}
-
-.matrix-icon-pfp--home {
-  background-color: #5C33F4;
-  color: #FAF5F5;
-}
-
-.matrix-icon-pfp--lobby {
-  background-color: #6CFF57;
-  color: #141414;
-}
-
-.matrix-icon-pfp--coordination {
-  background-color: #66F2FF;
-  color: #141414;
-}
-
-.matrix-icon-pfp--watercooler {
-  background-color: #B69DFE;
-  color: #141414;
-}
-
-.matrix-icon-pfp--ticketboerse {
-  background-color: #FF3719;
-  color: #141414;
-}
-
-.matrix-icon-pfp--ogm {
-  background-color: #141414;
-  color: #FAF5F5;
-}
-
-</style>
-<script type="text/javascript" defer>
-  window.onload = function() {
-      function buildRows(element) {
-        if (!element) {
-          return [];
-        }
-        var rows = [];
-        var currentRow = [];
-        var nodes = element.childNodes;
-        for (var i = 0; i < nodes.length; i++) {
-          var node = nodes[i];
-          if (node.nodeType === 1 && node.tagName === 'SPAN') {
-            currentRow.push(node);
-          } else if (node.nodeType === 1 && node.tagName === 'BR') {
-            if (currentRow.length) {
-              rows.push(currentRow);
-              currentRow = [];
-            }
-          }
-        }
-        if (currentRow.length) {
-          rows.push(currentRow);
-        }
-        return rows;
-      }
-
-      function applyWave(rows, calculator) {
-        var height = rows.length;
-        if (!height) {
-          return;
-        }
-        for (var y = 0; y < height; y++) {
-          var row = rows[y];
-          var width = row.length || 1;
-          for (var x = 0; x < width; x++) {
-            var span = row[x];
-            var delaySeconds = calculator(x, y, width, height);
-            span.style.animationDelay = "-" + delaySeconds + "s";
-          }
-        }
-      }
-
-      applyWave(
-        buildRows(document.getElementById('anim2')),
-        function (x, y, width) {
-          var divisor = Math.max(1, width);
-          var amplitude = Math.sin((x + y) / divisor * Math.PI / 2.0);
-          return amplitude * 3.0;
-        }
-      );
-
-      applyWave(
-        buildRows(document.getElementById('anim3')),
-        function (x, y, width, height) {
-          var divisorX = Math.max(1, width);
-          var divisorY = Math.max(1, height);
-          var amplitude =
-            Math.sin(-(x - divisorX / 4.0) / divisorX * Math.PI) *
-            Math.sin(-(y - divisorY / 4.0) / divisorY * Math.PI);
-          return amplitude * 3.0;
-        }
-      );
-
-      applyWave(
-        buildRows(document.getElementById('anim10')),
-        function (x, y, width, height) {
-          if (width <= 1 && height <= 1) {
-            return 0;
-          }
-          var normalizedX = width > 1 ? x / (width - 1) : 0;
-          var normalizedY = height > 1 ? y / (height - 1) : 0;
-          var phase = (normalizedX + normalizedY) * Math.PI;
-          return Math.sin(phase - Math.PI / 2) * 2.5;
-        }
-      );
+  body {
+    margin: 0;
+    background-color: var(--cdc-bg);
+    color: var(--cdc-text);
+    font-family: 'KarioDuplexVar', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    overflow-x: auto;
+  }
+  a {
+    color: var(--cdc-highlight);
+  }
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 3.5rem 0 4rem clamp(1.5rem, 4vw, 3rem);
+  }
+  .page-header {
+    margin-bottom: 4rem;
+  }
+  .page-header h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 350;
+  }
+  .page-lead {
+    margin: 0;
+    max-width: 640px;
+    color: var(--cdc-text-muted);
+    font-size: 1.05rem;
+  }
+  .design-block {
+    margin-bottom: 4.5rem;
+  }
+  .design-block:last-of-type {
+    margin-bottom: 0;
+  }
+  .design-block h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 320;
+    margin: 0 0 1.5rem;
+    letter-spacing: 0.01em;
+  }
+  .design-block__columns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .design-preview,
+  .design-snippet {
+    background-color: var(--cdc-panel);
+    border: 1px solid var(--cdc-panel-border);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .design-preview {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1 1 auto;
+    overflow-x: auto;
+  }
+  .design-preview .cdc-embed {
+    margin-left: auto;
+    max-width: 100%;
+  }
+  .design-snippet {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 360px;
+    width: 360px;
+    max-width: 360px;
+  }
+  .code-block {
+    position: relative;
+    flex: 1;
+  }
+  .code-block__pre {
+    margin: 0;
+    background: #101017;
+    border-radius: 18px;
+    padding: 1.5rem 1.75rem;
+    max-height: 480px;
+    overflow: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .code-block__pre code {
+    font-family: 'Fira Code', 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    color: #e6e6f0;
+    display: block;
+    white-space: pre;
+  }
+  .code-block__copy {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 999px;
+    background: var(--cdc-highlight);
+    color: #061112;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .code-block__copy:hover {
+    transform: translateY(-1px);
+    background: #80f6ff;
+  }
+  .code-block__copy:active {
+    transform: translateY(1px);
+    background: var(--cdc-highlight-active);
+  }
+  .code-block__copy:focus-visible {
+    outline: 2px solid var(--cdc-highlight-active);
+    outline-offset: 2px;
+  }
+  .matrix-icons-block {
+    margin-top: 5rem;
+    padding-right: clamp(1.5rem, 4vw, 3rem);
+  }
+  .matrix-icons-panel {
+    background-color: var(--cdc-panel);
+    border: 1px solid var(--cdc-panel-border);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+  .matrix-icons-panel h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 320;
+    margin: 0 0 1.75rem;
+    letter-spacing: 0.01em;
+  }
+  .matrix-icon-section {
+    margin: 0;
+  }
+  .matrix-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.75rem;
+  }
+  .matrix-icon-card {
+    font-size: 18pt;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 220px;
+    border-radius: 20px;
+    padding: 1.9rem;
+    gap: 0.75rem;
+  }
+  .matrix-icon-card svg {
+    width: 72px;
+    height: 72px;
+  }
+  .matrix-icon-card strong {
+    font-weight: 400;
+    display: block;
+  }
+  .matrix-icon-card span {
+    display: block;
+    font-size: 14pt;
+    opacity: 0.85;
+  }
+  .matrix-icon-card--home {
+    background-color: #5C33F4;
+    color: #FAF5F5;
+  }
+  .matrix-icon-card--lobby {
+    background-color: #6CFF57;
+    color: #141414;
+  }
+  .matrix-icon-card--coordination {
+    background-color: #66F2FF;
+    color: #141414;
+  }
+  .matrix-icon-card--watercooler {
+    background-color: #B69DFE;
+    color: #141414;
+  }
+  .matrix-icon-card--ticketboerse {
+    background-color: #FF3719;
+    color: #141414;
+  }
+  .matrix-icon-card--ogm {
+    background-color: #141414;
+    color: #FAF5F5;
+  }
+  .matrix-icon-pfp-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.35rem;
+    margin: 2.75rem 0 0;
+  }
+  .matrix-icon-pfp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 20px;
+  }
+  .matrix-icon-pfp svg {
+    width: 48px;
+    height: 48px;
+  }
+  .matrix-icon-pfp--home {
+    background-color: #5C33F4;
+    color: #FAF5F5;
+  }
+  .matrix-icon-pfp--lobby {
+    background-color: #6CFF57;
+    color: #141414;
+  }
+  .matrix-icon-pfp--coordination {
+    background-color: #66F2FF;
+    color: #141414;
+  }
+  .matrix-icon-pfp--watercooler {
+    background-color: #B69DFE;
+    color: #141414;
+  }
+  .matrix-icon-pfp--ticketboerse {
+    background-color: #FF3719;
+    color: #141414;
+  }
+  .matrix-icon-pfp--ogm {
+    background-color: #141414;
+    color: #FAF5F5;
+  }
+  footer {
+    margin: 0;
+    padding: 3rem clamp(1.5rem, 4vw, 3rem) 2.75rem;
+    color: var(--cdc-text-muted);
+    font-size: 0.95rem;
+  }
+  footer a {
+    color: var(--cdc-highlight);
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 1024px) {
+    main {
+      padding: 3rem clamp(1.5rem, 4vw, 3rem) 3.5rem;
     }
-</script>
+    .design-block__columns {
+      flex-direction: column;
+    }
+    .design-preview,
+    .design-snippet {
+      border-radius: 20px;
+    }
+    .design-preview {
+      justify-content: center;
+    }
+    .design-preview .cdc-embed {
+      margin-left: 0;
+    }
+    .design-snippet {
+      flex: 1 1 auto;
+      width: 100%;
+      max-width: none;
+    }
+    .matrix-icons-block {
+      padding-right: clamp(1.5rem, 4vw, 3rem);
+    }
+    .matrix-icons-panel {
+      border-radius: 20px;
+    }
+    .matrix-icon-grid {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+  }
+</style>
+<script src="39C3-Embeds/39C3-TypeMotions.js" defer></script>
 </head>
-
 <body>
-<h2>Matrix Icons</h2>
-<section class="matrix-icon-section">
-  <div class="matrix-icon-grid">
-    <article class="matrix-icon-card matrix-icon-card--home">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-        <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-      </svg>
-      <strong>C3 Critical Decentralization Cluster</strong>
-      <span>Main space hub for arrivals and announcements</span>
-    </article>
-    <article class="matrix-icon-card matrix-icon-card--lobby">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-        <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" />
-      </svg>
-      <strong>39c3 CDC Critical Decentralization Cluster</strong>
-      <span>Lobby channel for cross-assembly chatter</span>
-    </article>
-    <article class="matrix-icon-card matrix-icon-card--coordination">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <rect width="8" height="8" x="3" y="3" rx="2" />
-        <path d="M7 11v4a2 2 0 0 0 2 2h4" />
-        <rect width="8" height="8" x="13" y="13" rx="2" />
-      </svg>
-      <strong>39c3 CDC Coordination</strong>
-      <span>Internal work channel for scheduling and tasks</span>
-    </article>
-    <article class="matrix-icon-card matrix-icon-card--watercooler">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M10 2v2" />
-        <path d="M14 2v2" />
-        <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
-        <path d="M6 2v2" />
-      </svg>
-      <strong>39c3 CDC Watercooler</strong>
-      <span>Chitchat channel for informal conversation</span>
-    </article>
-    <article class="matrix-icon-card matrix-icon-card--ticketboerse">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-        <path d="M13 5v2" />
-        <path d="M13 17v2" />
-        <path d="M13 11v2" />
-      </svg>
-      <strong>39c3 CDC Ticketboerse</strong>
-      <span>Ticket exchange and logistics coordination</span>
-    </article>
-    <article class="matrix-icon-card matrix-icon-card--ogm">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
-        <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
-        <circle cx="12" cy="9" r="2" />
-        <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
-        <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
-        <path d="M9.5 18h5" />
-        <path d="m8 22 4-11 4 11" />
-      </svg>
-      <strong>39c3 OGM Assembly</strong>
-      <span>Off-grid messaging and resilient comms</span>
-    </article>
-  </div>
-</section>
-<div class="matrix-icon-pfp-grid">
-  <div class="matrix-icon-pfp matrix-icon-pfp--home" aria-label="Home room icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-      <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-    </svg>
-  </div>
-  <div class="matrix-icon-pfp matrix-icon-pfp--lobby" aria-label="Lobby room icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-      <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" />
-    </svg>
-  </div>
-  <div class="matrix-icon-pfp matrix-icon-pfp--coordination" aria-label="Coordination room icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <rect width="8" height="8" x="3" y="3" rx="2" />
-      <path d="M7 11v4a2 2 0 0 0 2 2h4" />
-      <rect width="8" height="8" x="13" y="13" rx="2" />
-    </svg>
-  </div>
-  <div class="matrix-icon-pfp matrix-icon-pfp--watercooler" aria-label="Watercooler room icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M10 2v2" />
-      <path d="M14 2v2" />
-      <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
-      <path d="M6 2v2" />
-    </svg>
-  </div>
-  <div class="matrix-icon-pfp matrix-icon-pfp--ticketboerse" aria-label="Ticket exchange room icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-      <path d="M13 5v2" />
-      <path d="M13 17v2" />
-      <path d="M13 11v2" />
-    </svg>
-  </div>
-  <div class="matrix-icon-pfp matrix-icon-pfp--ogm" aria-label="OGM Assembly room icon">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
-      <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
-      <circle cx="12" cy="9" r="2" />
-      <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
-      <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
-      <path d="M9.5 18h5" />
-      <path d="m8 22 4-11 4 11" />
-    </svg>
+<main class="design-collection">
+  <header class="page-header">
+    <h1>39C3 CDC Motion Patterns</h1>
+    <p class="page-lead">Left: live preview. Right: minimal embed snippet ready for copy-paste.</p>
+  </header>
+
+  <section class="design-block" id="weight-wave-grids">
+    <h2>Weight Wave Grids</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <p class="cdc-type anim1">
+            <span>3</span><span>9</span><span>C</span><span>3</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><br/>
+          </p>
+          <p class="cdc-type anim1">
+            <span>C</span><span>D</span><span>C</span><br/>
+            <span>C</span><span>D</span><span>C</span><br/>
+            <span>C</span><span>D</span><span>C</span><br/>
+          </p>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-weight-wave">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-weight-wave">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <p class="cdc-type anim1">
+    <span>3</span><span>9</span><span>C</span><span>3</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><br/>
+  </p>
+  <p class="cdc-type anim1">
+    <span>C</span><span>D</span><span>C</span><br/>
+    <span>C</span><span>D</span><span>C</span><br/>
+    <span>C</span><span>D</span><span>C</span><br/>
+  </p>
+</div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
+
+  <section class="design-block" id="endless-slogan-ripple">
+    <h2>Endless Slogan Ripple</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <p class="cdc-type anim1 anim1_5">
+            <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+          </p>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-endless-slogan">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-endless-slogan">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <p class="cdc-type anim1 anim1_5">
+    <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+  </p>
+</div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
+
+  <section class="design-block" id="sine-matrix-flow">
+    <h2>Sine Matrix Flow</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <p class="cdc-type anim2" data-wave="sine-flow">
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+          </p>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-sine-matrix">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-sine-matrix">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <p class="cdc-type anim2" data-wave="sine-flow">
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+  </p>
+</div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
+
+  <section class="design-block" id="chevron-pulse-markers">
+    <h2>Chevron Pulse Markers</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <p class="cdc-type anim9"><span>&lt;&lt;39C3</span></p>
+          <p class="cdc-type anim5"><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span></p>
+          <p class="cdc-type anim5"><span>&lt;&lt;CCC</span><span>DDD</span><span>&lt;&lt;CCC</span></p>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-chevron-pulse">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-chevron-pulse">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <p class="cdc-type anim9"><span>&lt;&lt;39C3</span></p>
+  <p class="cdc-type anim5"><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span></p>
+  <p class="cdc-type anim5"><span>&lt;&lt;CCC</span><span>DDD</span><span>&lt;&lt;CCC</span></p>
+</div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
+
+  <section class="design-block" id="pin-grid-wave">
+    <h2>Pin Grid Wave</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <p class="cdc-type anim3" data-wave="pin-grid">
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+            <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+          </p>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-pin-grid">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-pin-grid">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <p class="cdc-type anim3" data-wave="pin-grid">
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
+    <span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
+  </p>
+</div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
+
+  <section class="design-block" id="toggle-pair-oscillation">
+    <h2>Toggle Pair Oscillation</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <p class="cdc-type anim1 anim11">
+            <span>&lt;&lt;toggle</span>
+            <span>&lt;&lt;toggle2</span>
+          </p>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-toggle-pair">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-toggle-pair">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <p class="cdc-type anim1 anim11">
+    <span>&lt;&lt;toggle</span>
+    <span>&lt;&lt;toggle2</span>
+  </p>
+</div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
+
+  <section class="design-block" id="inverted-checker-motion">
+    <h2>Inverted Checker Motion</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <div class="black">
+            <p class="cdc-type anim6">
+              <span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><br/>
+              <span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-inverted-checker">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-inverted-checker">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <div class="black">
+    <p class="cdc-type anim6">
+      <span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><br/>
+      <span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span>
+    </p>
   </div>
 </div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
 
-<h2>Weight Wave Grids</h2>
-<p id="anim1" class="anim1">
-   <span>3</span><span>9</span><span>C</span><span>3</span><br/>
-   <span>3</span><span>9</span><span>C</span><span>3</span><br/>
-   <span>3</span><span>9</span><span>C</span><span>3</span><br/></p>
-
-<p id="anim1" class="anim1">
-   <span>C</span><span>D</span><span>C</span><br/>
-   <span>C</span><span>D</span><span>C</span><br/>
-   <span>C</span><span>D</span><span>C</span><br/></p>
-
-<h2>Endless Slogan Ripple</h2>
-<p id="anim1_5" class="anim1">
-   <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-   <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-   <span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span>
-</p>
-
-<h2>Sine Matrix Flow</h2>
-<p id="anim2">
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-</p>
-
-<h2>Chevron Pulse Markers</h2>
-<p id="anim9"><span>&lt;&lt;39C3</span></p>
-
-<p id="anim5"><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span></p>
-
-<p id="anim5"><span>&lt;&lt;CCC</span><span>DDD</span><span>&lt;&lt;CCC</span></p>
-
-<h2>Pin Grid Wave</h2>
-<p id="anim3" class="pin">
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-<span>3</span><span>9</span><span>C</span><span>3</span><span>&nbsp;</span><span>C</span><span>R</span><span>I</span><span>T</span><span>I</span><span>C</span><span>A</span><span>L</span><span>&nbsp;</span><span>D</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span><span>R</span><span>A</span><span>L</span><span>I</span><span>Z</span><span>A</span><span>T</span><span>I</span><span>O</span><span>N</span><br/>
-</p>
-
-<h2>Toggle Pair Oscillation</h2>
-<p id="anim11" class="anim1">
-<span>&lt;&lt;toggle</span>
-<span>&lt;&lt;toggle2</span>
-</p>
-
-<h2>Inverted Checker Motion</h2>
-<div class="black">
-<p id="anim6" class="anim6">
-<span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><br/>
-<span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span><span>D</span><span>&lt;&lt;CCC</span>
-</p>
+  <section class="design-block" id="high-contrast-crossfade">
+    <h2>High Contrast Crossfade</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <div class="black">
+            <p class="cdc-type anim7">
+              <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
+              <span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
+              <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
+              <span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
+              <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
+              <span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-high-contrast">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-high-contrast">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <div class="black">
+    <p class="cdc-type anim7">
+      <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
+      <span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
+      <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
+      <span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
+      <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
+      <span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
+    </p>
+  </div>
 </div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
 
-<h2>High Contrast Crossfade</h2>
-<div class="black">
-<p id="anim7" class="anim7">
-<span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
-<span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
-<span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
-<span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
-<span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3<br/></span>
-<span>39C3</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC<br/></span>
-</p>
+  <section class="design-block" id="dense-grid-flutter">
+    <h2>Dense Grid Flutter</h2>
+    <div class="design-block__columns">
+      <div class="design-preview">
+        <div class="cdc-embed">
+          <div class="black">
+            <p class="cdc-type anim8">
+              <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span>
+              <span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
+              <span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
+              <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span>
+              <span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
+              <span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
+              <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span>
+              <span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
+              <span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="design-snippet">
+        <div class="code-block" data-snippet-id="snippet-dense-grid">
+          <button type="button" class="code-block__copy">Copy</button>
+          <pre class="code-block__pre"><code class="language-html"></code></pre>
+        </div>
+      </div>
+    </div>
+    <template id="snippet-dense-grid">
+<link rel="stylesheet" href="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.css">
+<div class="cdc-embed">
+  <div class="black">
+    <p class="cdc-type anim8">
+      <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span>
+      <span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
+      <span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
+      <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span>
+      <span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
+      <span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
+      <span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span>
+      <span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
+      <span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
+    </p>
+  </div>
 </div>
+<script src="https://l5yth.github.io/39c3-cdc/39C3-Embeds/39C3-TypeMotions.js" defer></script>
+    </template>
+  </section>
 
-<h2>Dense Grid Flutter</h2>
-<div class="black">
-<p id="anim8" class="anim8">
-<span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span>
-<span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
-<span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
-<span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span>
-<span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
-<span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
-<span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span>
-<span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span>
-<span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
-</p>
-</div>
+  <section class="matrix-icons-block" id="matrix-icons">
+    <div class="matrix-icons-panel">
+      <h1>Matrix Icons for the CDC Space</h1>
+      <section class="matrix-icon-section">
+        <div class="matrix-icon-grid">
+          <article class="matrix-icon-card matrix-icon-card--home">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+              <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+            <strong>C3 Critical Decentralization Cluster</strong>
+            <span>Main space hub for arrivals and announcements</span>
+          </article>
+          <article class="matrix-icon-card matrix-icon-card--lobby">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+              <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" />
+            </svg>
+            <strong>39c3 CDC Critical Decentralization Cluster</strong>
+            <span>Lobby channel for cross-assembly chatter</span>
+          </article>
+          <article class="matrix-icon-card matrix-icon-card--coordination">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect width="8" height="8" x="3" y="3" rx="2" />
+              <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+              <rect width="8" height="8" x="13" y="13" rx="2" />
+            </svg>
+            <strong>39c3 CDC Coordination</strong>
+            <span>Internal work channel for scheduling and tasks</span>
+          </article>
+          <article class="matrix-icon-card matrix-icon-card--watercooler">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M10 2v2" />
+              <path d="M14 2v2" />
+              <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
+              <path d="M6 2v2" />
+            </svg>
+            <strong>39c3 CDC Watercooler</strong>
+            <span>Chitchat channel for informal conversation</span>
+          </article>
+          <article class="matrix-icon-card matrix-icon-card--ticketboerse">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+              <path d="M13 5v2" />
+              <path d="M13 17v2" />
+              <path d="M13 11v2" />
+            </svg>
+            <strong>39c3 CDC Ticketboerse</strong>
+            <span>Ticket exchange and logistics coordination</span>
+          </article>
+          <article class="matrix-icon-card matrix-icon-card--ogm">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
+              <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
+              <circle cx="12" cy="9" r="2" />
+              <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
+              <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
+              <path d="M9.5 18h5" />
+              <path d="m8 22 4-11 4 11" />
+            </svg>
+            <strong>39c3 OGM Assembly</strong>
+            <span>Off-grid messaging and resilient comms</span>
+          </article>
+        </div>
+      </section>
+      <div class="matrix-icon-pfp-grid">
+        <div class="matrix-icon-pfp matrix-icon-pfp--home" aria-label="Home room icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+            <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          </svg>
+        </div>
+        <div class="matrix-icon-pfp matrix-icon-pfp--lobby" aria-label="Lobby room icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+            <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" />
+          </svg>
+        </div>
+        <div class="matrix-icon-pfp matrix-icon-pfp--coordination" aria-label="Coordination room icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="8" height="8" x="3" y="3" rx="2" />
+            <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+            <rect width="8" height="8" x="13" y="13" rx="2" />
+          </svg>
+        </div>
+        <div class="matrix-icon-pfp matrix-icon-pfp--watercooler" aria-label="Watercooler room icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M10 2v2" />
+            <path d="M14 2v2" />
+            <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
+            <path d="M6 2v2" />
+          </svg>
+        </div>
+        <div class="matrix-icon-pfp matrix-icon-pfp--ticketboerse" aria-label="Ticket exchange room icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+            <path d="M13 5v2" />
+            <path d="M13 17v2" />
+            <path d="M13 11v2" />
+          </svg>
+        </div>
+        <div class="matrix-icon-pfp matrix-icon-pfp--ogm" aria-label="OGM Assembly room icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
+            <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
+            <circle cx="12" cy="9" r="2" />
+            <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
+            <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
+            <path d="M9.5 18h5" />
+            <path d="m8 22 4-11 4 11" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
 
+</main>
 <footer>
   <a href="https://github.com/l5yth/39c3-cdc/">github/l5yth/39c3-cdc</a>
 </footer>
+<script>
+  (function () {
+    var blocks = document.querySelectorAll('[data-snippet-id]');
+    blocks.forEach(function (block) {
+      var snippetId = block.getAttribute('data-snippet-id');
+      var template = document.getElementById(snippetId);
+      if (!template) {
+        return;
+      }
+      var text = template.innerHTML.trim();
+      var code = block.querySelector('code');
+      code.textContent = text;
+      var button = block.querySelector('.code-block__copy');
+      button.addEventListener('click', function () {
+        navigator.clipboard.writeText(text).then(function () {
+          var original = button.textContent;
+          button.textContent = 'Copied!';
+          setTimeout(function () {
+            button.textContent = original;
+          }, 1200);
+        }).catch(function () {
+          button.textContent = 'Copy failed';
+          setTimeout(function () {
+            button.textContent = 'Copy';
+          }, 1500);
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
