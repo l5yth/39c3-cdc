@@ -159,6 +159,130 @@ p#anim8 span:nth-child(2n)   { animation-delay: -3.0s; }
 p#anim8 span:nth-child(2n+1) { animation-delay: -1.5s; }
 p#anim8 span:nth-child(2n+2) { animation-delay:  0.0s; }
 
+.matrix-icon-section {
+  margin: 3em 0 0;
+}
+
+.matrix-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.matrix-icon-card {
+  font-family: KarioDuplexVar;
+  font-size: 18pt;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 220px;
+  border-radius: 16px;
+  padding: 1.75rem;
+}
+
+.matrix-icon-card svg {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 1rem;
+}
+
+.matrix-icon-card strong {
+  font-weight: 400;
+}
+
+.matrix-icon-card span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 14pt;
+  opacity: 0.85;
+}
+
+.matrix-icon-card--home {
+  background-color: #5C33F4;
+  color: #FAF5F5;
+}
+
+.matrix-icon-card--lobby {
+  background-color: #6CFF57;
+  color: #141414;
+}
+
+.matrix-icon-card--coordination {
+  background-color: #66F2FF;
+  color: #141414;
+}
+
+.matrix-icon-card--watercooler {
+  background-color: #B69DFE;
+  color: #141414;
+}
+
+.matrix-icon-card--ticketboerse {
+  background-color: #FF3719;
+  color: #141414;
+}
+
+.matrix-icon-card--ogm {
+  background-color: #141414;
+  color: #FAF5F5;
+}
+
+.matrix-icon-pfp-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 2.5rem 0 0;
+}
+
+.matrix-icon-pfp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  margin: 0;
+}
+
+.matrix-icon-pfp svg {
+  width: 48px;
+  height: 48px;
+}
+
+.matrix-icon-pfp--home {
+  background-color: #5C33F4;
+  color: #FAF5F5;
+}
+
+.matrix-icon-pfp--lobby {
+  background-color: #6CFF57;
+  color: #141414;
+}
+
+.matrix-icon-pfp--coordination {
+  background-color: #66F2FF;
+  color: #141414;
+}
+
+.matrix-icon-pfp--watercooler {
+  background-color: #B69DFE;
+  color: #141414;
+}
+
+.matrix-icon-pfp--ticketboerse {
+  background-color: #FF3719;
+  color: #141414;
+}
+
+.matrix-icon-pfp--ogm {
+  background-color: #141414;
+  color: #FAF5F5;
+}
+
 </style>
 <script type="text/javascript" defer>
   window.onload = function() {
@@ -343,6 +467,250 @@ p#anim8 span:nth-child(2n+2) { animation-delay:  0.0s; }
 <span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>CDC</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span><span>&lt;&lt;CCC</span><span>&lt;&lt;CCC</span><span>39C3</span>
 
 </p>
+</div>
+
+<h2>Matrix Icons</h2>
+<section class="matrix-icon-section">
+  <div class="matrix-icon-grid">
+    <article class="matrix-icon-card matrix-icon-card--home">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      <strong>C3 Critical Decentralization Cluster space home</strong>
+      <span>Main space hub for arrivals and announcements</span>
+    </article>
+    <article class="matrix-icon-card matrix-icon-card--lobby">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+        <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" />
+      </svg>
+      <strong>39c3 CDC Critical Decentralization Cluster</strong>
+      <span>Lobby channel for cross-assembly chatter</span>
+    </article>
+    <article class="matrix-icon-card matrix-icon-card--coordination">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <rect width="8" height="8" x="3" y="3" rx="2" />
+        <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+        <rect width="8" height="8" x="13" y="13" rx="2" />
+      </svg>
+      <strong>39c3 CDC Coordination</strong>
+      <span>Internal work channel for scheduling and tasks</span>
+    </article>
+    <article class="matrix-icon-card matrix-icon-card--watercooler">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M10 2v2" />
+        <path d="M14 2v2" />
+        <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
+        <path d="M6 2v2" />
+      </svg>
+      <strong>39c3 CDC Watercooler</strong>
+      <span>Chitchat channel for informal conversation</span>
+    </article>
+    <article class="matrix-icon-card matrix-icon-card--ticketboerse">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+        <path d="M13 5v2" />
+        <path d="M13 17v2" />
+        <path d="M13 11v2" />
+      </svg>
+      <strong>39c3 CDC Ticketboerse</strong>
+      <span>Ticket exchange and logistics coordination</span>
+    </article>
+    <article class="matrix-icon-card matrix-icon-card--ogm">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
+        <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
+        <circle cx="12" cy="9" r="2" />
+        <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
+        <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
+        <path d="M9.5 18h5" />
+        <path d="m8 22 4-11 4 11" />
+      </svg>
+      <strong>39c3 OGM Assembly</strong>
+      <span>Off-grid messaging and resilient comms</span>
+    </article>
+  </div>
+</section>
+<div class="matrix-icon-pfp-grid">
+  <div class="matrix-icon-pfp matrix-icon-pfp--home" aria-label="Home room icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+      <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+    </svg>
+  </div>
+  <div class="matrix-icon-pfp matrix-icon-pfp--lobby" aria-label="Lobby room icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+      <path d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1" />
+    </svg>
+  </div>
+  <div class="matrix-icon-pfp matrix-icon-pfp--coordination" aria-label="Coordination room icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <rect width="8" height="8" x="3" y="3" rx="2" />
+      <path d="M7 11v4a2 2 0 0 0 2 2h4" />
+      <rect width="8" height="8" x="13" y="13" rx="2" />
+    </svg>
+  </div>
+  <div class="matrix-icon-pfp matrix-icon-pfp--watercooler" aria-label="Watercooler room icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M10 2v2" />
+      <path d="M14 2v2" />
+      <path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1" />
+      <path d="M6 2v2" />
+    </svg>
+  </div>
+  <div class="matrix-icon-pfp matrix-icon-pfp--ticketboerse" aria-label="Ticket exchange room icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+      <path d="M13 5v2" />
+      <path d="M13 17v2" />
+      <path d="M13 11v2" />
+    </svg>
+  </div>
+  <div class="matrix-icon-pfp matrix-icon-pfp--ogm" aria-label="OGM Assembly room icon">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9" />
+      <path d="M7.8 4.7a6.14 6.14 0 0 0-.8 7.5" />
+      <circle cx="12" cy="9" r="2" />
+      <path d="M16.2 4.8c2 2 2.26 5.11.8 7.47" />
+      <path d="M19.1 1.9a9.96 9.96 0 0 1 0 14.1" />
+      <path d="M9.5 18h5" />
+      <path d="m8 22 4-11 4 11" />
+    </svg>
+  </div>
 </div>
 <footer>
   <a href="https://github.com/l5yth/39c3-cdc/">github/l5yth/39c3-cdc</a>
